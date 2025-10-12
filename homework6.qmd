@@ -1,0 +1,67 @@
+---
+title: "homework6"
+format: html
+editor: visual
+---
+
+# Homework 6 - ST558 - Evan Gray
+
+# Conceptual Questions
+
+1.  What is the purpose of the lapply() function? What is the equivalent purrr function?
+
+<div>
+
+lapply() is a function used to execute a function across multiple list objects, it is meant to be a more efficient to loops. Map() is an equivalent purrr tidyverse function.
+
+</div>
+
+2.  Suppose we have a list called my_list. Each element of the list is a numeric data frame (all columns are numeric). We want to use lapply() to run the code cor(numeric_matrix, method = "kendall") on each element of the list. Write code to do this.
+
+```{r}
+#list df1 - correlated
+x <- c(seq(1,5,1))
+y <- c(seq(2,10,2))
+df1 <- data.frame(x,y)
+
+#list df2 - probably not correlated
+set.seed(1)
+a <- rnorm(5,10,50)
+b <- runif(5,0,1)
+df2 <- data.frame(a,b)
+
+#create list
+testlist <- list(df1,df2)
+
+#lapply with additional argument listed following a comma NOT within parentheses
+newcor <- lapply(X = testlist, FUN = cor, method = "kendall")
+newcor
+```
+
+3.  What are two advantages of using purrr functions instead of the base R apply family?
+
+    <div>
+
+    Some of the advantages of purrr:
+
+    -   purrr functions such as map() allow for more concise and readable code. Its functions are written in C so they execute relatively quick.
+
+    -   purrr functions have simply syntax for implementing anonymous functions "(x)" instead of " \<- function(x...)"
+
+    </div>
+
+4.  What is a side-effect function?
+
+    <div>
+
+    A side effect function does not return a "transformed" object. It simply performs some action with what it inputs (printing, plotting, saving, etc).
+
+    </div>
+
+5.  Why can you name a variable "sd" in a function and not cause any issues with the "sd" function?
+
+    <div>
+
+    This is because of lexical scoping - "where" R looks for objects you've coded. The inside of a function is a separate environment from outside so it doesn't look for the base R "sd" function as long as you've named an object "sd" INSIDE of the function.
+
+    </div>
