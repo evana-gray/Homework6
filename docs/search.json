@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "homework6.html#test-rmse-function",
+    "href": "homework6.html#test-rmse-function",
+    "title": "homework6",
+    "section": "Test RMSE function",
+    "text": "Test RMSE function\n\n#test function\ngetRMSE(pred,resp)\n\n[1] 0.9180853"
+  },
+  {
+    "objectID": "homework6.html#test-rmse-function-w-na-values",
+    "href": "homework6.html#test-rmse-function-w-na-values",
+    "title": "homework6",
+    "section": "Test RMSE function w NA values",
+    "text": "Test RMSE function w NA values\n\n#manual change with missing\nresp[3:5] &lt;- c(NA_real_)\n\n#test function w and w/o argument to deal with NAs\ngetRMSE(pred,resp)\n\n[1] NA\n\ngetRMSE(pred,resp, na.rm = TRUE)\n\n[1] 0.8837701"
+  },
+  {
+    "objectID": "homework6.html#test-mae-function",
+    "href": "homework6.html#test-mae-function",
+    "title": "homework6",
+    "section": "Test MAE function",
+    "text": "Test MAE function\n\nset.seed(10)\nn &lt;- 100\nx &lt;- runif(n)\nresp &lt;- 3 + 10 * x + rnorm(n)\npred &lt;- predict(lm(resp ~ x), data.frame(x))\n\ngetMAE(pred,resp)\n\n[1] 0.8155776"
+  },
+  {
+    "objectID": "homework6.html#test-mae-function-w-missing",
+    "href": "homework6.html#test-mae-function-w-missing",
+    "title": "homework6",
+    "section": "Test MAE function w/ missing",
+    "text": "Test MAE function w/ missing\n\nresp[7:8] &lt;- c(NA_real_)\n\ngetMAE(pred,resp)\n\n[1] NA\n\ngetMAE(pred,resp, na.rm = TRUE)\n\n[1] 0.8175681"
+  }
+]
