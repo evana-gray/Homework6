@@ -65,3 +65,24 @@ newcor
     This is because of lexical scoping - "where" R looks for objects you've coded. The inside of a function is a separate environment from outside so it doesn't look for the base R "sd" function as long as you've named an object "sd" INSIDE of the function.
 
     </div>
+
+# MSE Function Writing
+
+```{r}
+getRMSE <- function(predict, response,...){
+  
+  n1 <- length(predict)
+  n2 <- length(response)
+  
+  if (n1 != n2) {
+    stop("response and predict vectors must be of same length")
+  }
+ 
+  diffsq <- (c(predict-response))^2
+  RMSE <- sqrt(
+                sum(diffsq) * (1/n1)
+                )
+
+  return(RMSE)
+}
+```
