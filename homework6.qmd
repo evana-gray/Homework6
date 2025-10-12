@@ -66,7 +66,7 @@ newcor
 
     </div>
 
-# MSE Function Writing
+# RMSE Function Writing
 
 ```{r}
 getRMSE <- function(predict, response,...){
@@ -110,3 +110,38 @@ getRMSE(pred,resp)
 
 getRMSE(pred,resp, na.rm = TRUE)
 ```
+
+# MAE Function 
+
+```{r}
+
+getMAE <- function(predict, response,...){
+
+  absdiff <- c(abs(predict-response))
+  MAE <- mean(absdiff,...)
+
+  return(MAE)
+}
+```
+
+## Test MAE function
+```{r}
+set.seed(10)
+n <- 100
+x <- runif(n)
+resp <- 3 + 10 * x + rnorm(n)
+pred <- predict(lm(resp ~ x), data.frame(x))
+
+getMAE(pred,resp)
+```
+
+## Test MAE function w/ missing
+```{r}
+resp[7:8] <- c(NA_real_)
+
+getMAE(pred,resp)
+
+getMAE(pred,resp, na.rm = TRUE)
+
+```
+
