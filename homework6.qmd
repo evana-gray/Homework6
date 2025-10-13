@@ -111,7 +111,7 @@ getRMSE(pred,resp)
 getRMSE(pred,resp, na.rm = TRUE)
 ```
 
-# MAE Function 
+# MAE Function
 
 ```{r}
 
@@ -125,6 +125,7 @@ getMAE <- function(predict, response,...){
 ```
 
 ## Test MAE function
+
 ```{r}
 set.seed(10)
 n <- 100
@@ -136,6 +137,7 @@ getMAE(pred,resp)
 ```
 
 ## Test MAE function w/ missing
+
 ```{r}
 resp[7:8] <- c(NA_real_)
 
@@ -145,3 +147,77 @@ getMAE(pred,resp, na.rm = TRUE)
 
 ```
 
+# Wrapper Function
+
+```{r}
+predEVAL <- function(prediction,response,method = "ALL",...){
+    if ((!is.numeric(prediction) | !is.vector(prediction)) || (!is.numeric(response) | !is.vector(response))) {
+    stop(print("choose two numeric vectors"))
+    }
+  
+    MAE <- getMAE(prediction,response,...)
+    RMSE <- getRMSE(prediction,response,...)
+     
+ result <- if (method == "MAE"){
+      paste0("Mean Adjusted Error is ",round(MAE,digits=4))
+    }
+    else if (method == "RMSE"){
+      paste0("Root Mean Square Error is ",round(RMSE,digits=4))
+    }
+    else if (method == "ALL"){
+      paste0("Root Mean Square Error is ",round(RMSE,digits=4)," / Mean Adjusted Error is ",round(MAE,digits=4))
+    }
+ return(result)
+}
+```
+
+## Test Wrapper Function
+
+```{r}
+#reset pred and resp
+set.seed(10)
+n <- 100
+x <- runif(n)
+resp <- 3 + 10 * x + rnorm(n)
+pred <- predict(lm(resp ~ x), data.frame(x))
+
+```
+
+MAE Test
+
+```{r}
+predEVAL(pred,resp,method="MAE")
+```
+
+RMSE Test
+
+```{r}
+predEVAL(pred,resp,method="RMSE")
+```
+
+Both Metrics Test
+
+```{r}
+predEVAL(pred,resp)
+```
+
+## Test WRAPPER with NA
+
+```{r}
+resp[7:8] <- c(NA_real_)
+
+predEVAL(pred,resp)
+predEVAL(pred,resp,na.rm=TRUE)
+```
+
+## Test passing incorrect data to function
+
+```{r, error=TRUE}
+#create test vectors and df
+a <- c("evan","debbie","canes")
+b <- seq(1:3)
+df <- data.frame(a,b)
+
+predEVAL(a,b)
+predEVAL(pred[1:3],df)
+```

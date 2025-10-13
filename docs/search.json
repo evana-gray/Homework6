@@ -26,5 +26,26 @@
     "title": "homework6",
     "section": "Test MAE function w/ missing",
     "text": "Test MAE function w/ missing\n\nresp[7:8] &lt;- c(NA_real_)\n\ngetMAE(pred,resp)\n\n[1] NA\n\ngetMAE(pred,resp, na.rm = TRUE)\n\n[1] 0.8175681"
+  },
+  {
+    "objectID": "homework6.html#test-wrapper-function",
+    "href": "homework6.html#test-wrapper-function",
+    "title": "homework6",
+    "section": "Test Wrapper Function",
+    "text": "Test Wrapper Function\n\n#reset pred and resp\nset.seed(10)\nn &lt;- 100\nx &lt;- runif(n)\nresp &lt;- 3 + 10 * x + rnorm(n)\npred &lt;- predict(lm(resp ~ x), data.frame(x))\n\nMAE Test\n\npredEVAL(pred,resp,method=\"MAE\")\n\n[1] \"Mean Adjusted Error is 0.8156\"\n\n\nRMSE Test\n\npredEVAL(pred,resp,method=\"RMSE\")\n\n[1] \"Root Mean Square Error is 0.9181\"\n\n\nBoth Metrics Test\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is 0.9181 / Mean Adjusted Error is 0.8156\""
+  },
+  {
+    "objectID": "homework6.html#test-wrapper-with-na",
+    "href": "homework6.html#test-wrapper-with-na",
+    "title": "homework6",
+    "section": "Test WRAPPER with NA",
+    "text": "Test WRAPPER with NA\n\nresp[7:8] &lt;- c(NA_real_)\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is NA / Mean Adjusted Error is NA\"\n\npredEVAL(pred,resp,na.rm=TRUE)\n\n[1] \"Root Mean Square Error is 0.9258 / Mean Adjusted Error is 0.8176\""
+  },
+  {
+    "objectID": "homework6.html#test-passing-incorrect-data-to-function",
+    "href": "homework6.html#test-passing-incorrect-data-to-function",
+    "title": "homework6",
+    "section": "Test passing incorrect data to function",
+    "text": "Test passing incorrect data to function\n\n#create test vectors and df\na &lt;- c(\"evan\",\"debbie\",\"canes\")\nb &lt;- seq(1:3)\ndf &lt;- data.frame(a,b)\n\npredEVAL(a,b)\n\n[1] \"choose two numeric vectors\"\n\n\nError in predEVAL(a, b): choose two numeric vectors\n\npredEVAL(pred[1:3],df)\n\n[1] \"choose two numeric vectors\"\n\n\nError in predEVAL(pred[1:3], df): choose two numeric vectors"
   }
 ]
