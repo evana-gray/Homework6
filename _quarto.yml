@@ -1,10 +1,11 @@
-project: 
+project:
   type: website
   output-dir: docs
   render: 
     - homework6.qmd
-  
-  website:
+
+    
+website:
   title: "Homework 6 Site"
   navbar:
     background: primary
@@ -17,13 +18,12 @@ project:
     collapse-level: 1
     contents:
       - homework6.qmd
+
   page-navigation: true
   reader-mode: true
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true
     grid:
       sidebar-width: 300px
