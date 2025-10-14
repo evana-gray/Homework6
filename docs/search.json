@@ -47,5 +47,40 @@
     "title": "homework6",
     "section": "Test passing incorrect data to function",
     "text": "Test passing incorrect data to function\n\n#create test vectors and df\na &lt;- c(\"evan\",\"debbie\",\"canes\")\nb &lt;- seq(1:3)\ndf &lt;- data.frame(a,b)\n\npredEVAL(a,b)\n\n[1] \"choose two numeric vectors\"\n\n\nError in predEVAL(a, b): choose two numeric vectors\n\npredEVAL(pred[1:3],df)\n\n[1] \"choose two numeric vectors\"\n\n\nError in predEVAL(pred[1:3], df): choose two numeric vectors"
+  },
+  {
+    "objectID": "homework6.html#additional-models",
+    "href": "homework6.html#additional-models",
+    "title": "homework6",
+    "section": "Additional Models",
+    "text": "Additional Models\n\nlm_fit2 &lt;- lm(Sepal.Length ~ Sepal.Width, data = iris)\nlm_fit3 &lt;- lm(Sepal.Length ~ Petal.Width + Sepal.Width + Species, data = iris)\nlm_fit4 &lt;- lm(Sepal.Length ~ Petal.Width + Petal.Length + Sepal.Width + Species, data = iris)\nfits &lt;- list(lm_fit1, lm_fit2, lm_fit3, lm_fit4)"
+  },
+  {
+    "objectID": "homework6.html#return-all-coefficients-objects-for-each-list-item-of-fits",
+    "href": "homework6.html#return-all-coefficients-objects-for-each-list-item-of-fits",
+    "title": "homework6",
+    "section": "Return all coefficients objects for each list item of fits",
+    "text": "Return all coefficients objects for each list item of fits\n\nmap(fits,\"coefficients\")\n\n[[1]]\n      (Intercept)       Sepal.Width Speciesversicolor  Speciesvirginica \n        2.2513932         0.8035609         1.4587431         1.9468166 \n\n[[2]]\n(Intercept) Sepal.Width \n  6.5262226  -0.2233611 \n\n[[3]]\n      (Intercept)       Petal.Width       Sepal.Width Speciesversicolor \n        2.5210733         0.3715768         0.6982260         0.9881297 \n Speciesvirginica \n        1.2375878 \n\n[[4]]\n      (Intercept)       Petal.Width      Petal.Length       Sepal.Width \n        2.1712663        -0.3151552         0.8292439         0.4958889 \nSpeciesversicolor  Speciesvirginica \n       -0.7235620        -1.0234978"
+  },
+  {
+    "objectID": "homework6.html#for-each-list-item-of-fits-operate-confint",
+    "href": "homework6.html#for-each-list-item-of-fits-operate-confint",
+    "title": "homework6",
+    "section": "for each list item of fits, operate confint()",
+    "text": "for each list item of fits, operate confint()\n\n#confint() does not require coefficient specification\nmap(fits, \\(x) confint(x))\n\n[[1]]\n                      2.5 %   97.5 %\n(Intercept)       1.5206309 2.982156\nSepal.Width       0.5933983 1.013723\nSpeciesversicolor 1.2371791 1.680307\nSpeciesvirginica  1.7491525 2.144481\n\n[[2]]\n                2.5 %     97.5 %\n(Intercept)  5.579865 7.47258038\nSepal.Width -0.529820 0.08309785\n\n[[3]]\n                        2.5 %    97.5 %\n(Intercept)        1.74261803 3.2995285\nPetal.Width       -0.02042746 0.7635811\nSepal.Width        0.46205710 0.9343950\nSpeciesversicolor  0.44520784 1.5310516\nSpeciesvirginica   0.46412393 2.0110518\n\n[[4]]\n                       2.5 %      97.5 %\n(Intercept)        1.6182321  2.72430044\nPetal.Width       -0.6140049 -0.01630542\nPetal.Length       0.6937939  0.96469395\nSepal.Width        0.3257653  0.66601260\nSpeciesversicolor -1.1982739 -0.24885002\nSpeciesvirginica  -1.6831329 -0.36386273"
+  },
+  {
+    "objectID": "homework6.html#plot1",
+    "href": "homework6.html#plot1",
+    "title": "homework6",
+    "section": "Plot1",
+    "text": "Plot1\n\npar(mfrow = c(2,2))\nmap(fits,\"residuals\") |&gt; #creates list of 4 residual vectors\n  walk(hist)\n\n\n\n\n\n\n\n#other methods to pull residuals (2) for 1st fits object\n#pluck(fits,1,2)\n#resid(lm_fit1)\n#resid(fits[[1]])"
+  },
+  {
+    "objectID": "homework6.html#plot-2",
+    "href": "homework6.html#plot-2",
+    "title": "homework6",
+    "section": "Plot 2",
+    "text": "Plot 2\n\npar(mfrow = c(2,2))\nmap(fits,\"residuals\") |&gt; #creates list of 4 residual vectors\nset_names(c(\"fit1\",\"fit2\",\"fit3\",\"fit4\")) |&gt; #inputs list and renames each vector\n  iwalk(\\(x, names(x)) hist(x,main = names(x))) #don't know how to make this work...\n\nError in parse(text = input): &lt;text&gt;:4:19: unexpected '('\n3: set_names(c(\"fit1\",\"fit2\",\"fit3\",\"fit4\")) |&gt; #inputs list and renames each vector\n4:   iwalk(\\(x, names(\n                     ^"
   }
 ]
