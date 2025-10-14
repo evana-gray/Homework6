@@ -6,7 +6,7 @@ editor_options:
   chunk_output_type: inline
 ---
 
-# Homework 6 - ST558 - Evan Gray
+# Trying a different html theme
 
 # Conceptual Questions
 

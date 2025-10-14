@@ -24,6 +24,8 @@ website:
 
 format:
   html:
+    theme: flatly
+    css: styles.css
     toc: true
     grid:
       sidebar-width: 300px
