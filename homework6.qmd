@@ -48,7 +48,7 @@ newcor
 
     -   purrr functions such as map() allow for more concise and readable code. Its functions are written in C so they execute relatively quick.
 
-    -   purrr functions have simply syntax for implementing anonymous functions "(x)" instead of " \<- function(x...)"
+    -   purrr functions have simply syntax for implementing anonymous functions "\(x)" instead of " <- function(x...)"
 
     </div>
 
