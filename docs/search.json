@@ -15,7 +15,7 @@
     "href": "homework6.html#test-rmse-function",
     "title": "Homework 6 Site - Evan Gray",
     "section": "Test RMSE function",
-    "text": "Test RMSE function\n\n#test function\ngetRMSE(pred,resp)\n\n[1] 0.9180853",
+    "text": "Test RMSE function\n\n#test function\ngetRMSE(pred,resp)\n\n[1] 0.9581677",
     "crumbs": [
       "Home",
       "Homework 6 Site - Evan Gray"
@@ -26,7 +26,7 @@
     "href": "homework6.html#test-rmse-function-w-na-values",
     "title": "Homework 6 Site - Evan Gray",
     "section": "Test RMSE function w NA values",
-    "text": "Test RMSE function w NA values\n\n#manual change with missing\nresp[3:5] &lt;- c(NA_real_)\n\n#test function w and w/o argument to deal with NAs\ngetRMSE(pred,resp)\n\n[1] NA\n\ngetRMSE(pred,resp, na.rm = TRUE)\n\n[1] 0.8837701",
+    "text": "Test RMSE function w NA values\n\n#manual change with missing\nresp[3:5] &lt;- c(NA_real_)\n\n#test function w and w/o argument to deal with NAs\ngetRMSE(pred,resp)\n\n[1] NA\n\ngetRMSE(pred,resp, na.rm = TRUE)\n\n[1] 0.9400905",
     "crumbs": [
       "Home",
       "Homework 6 Site - Evan Gray"
@@ -59,7 +59,7 @@
     "href": "homework6.html#test-wrapper-function",
     "title": "Homework 6 Site - Evan Gray",
     "section": "Test Wrapper Function",
-    "text": "Test Wrapper Function\n\n#reset pred and resp\nset.seed(10)\nn &lt;- 100\nx &lt;- runif(n)\nresp &lt;- 3 + 10 * x + rnorm(n)\npred &lt;- predict(lm(resp ~ x), data.frame(x))\n\nMAE Test\n\npredEVAL(pred,resp,method=\"MAE\")\n\n[1] \"Mean Adjusted Error is 0.8156\"\n\n\nRMSE Test\n\npredEVAL(pred,resp,method=\"RMSE\")\n\n[1] \"Root Mean Square Error is 0.9181\"\n\n\nBoth Metrics Test\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is 0.9181 / Mean Adjusted Error is 0.8156\"",
+    "text": "Test Wrapper Function\n\n#reset pred and resp\nset.seed(10)\nn &lt;- 100\nx &lt;- runif(n)\nresp &lt;- 3 + 10 * x + rnorm(n)\npred &lt;- predict(lm(resp ~ x), data.frame(x))\n\nMAE Test\n\npredEVAL(pred,resp,method=\"MAE\")\n\n[1] \"Mean Adjusted Error is 0.8156\"\n\n\nRMSE Test\n\npredEVAL(pred,resp,method=\"RMSE\")\n\n[1] \"Root Mean Square Error is 0.9582\"\n\n\nBoth Metrics Test\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is 0.9582 / Mean Adjusted Error is 0.8156\"",
     "crumbs": [
       "Home",
       "Homework 6 Site - Evan Gray"
@@ -70,7 +70,7 @@
     "href": "homework6.html#test-wrapper-with-na",
     "title": "Homework 6 Site - Evan Gray",
     "section": "Test WRAPPER with NA",
-    "text": "Test WRAPPER with NA\n\nresp[7:8] &lt;- c(NA_real_)\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is NA / Mean Adjusted Error is NA\"\n\npredEVAL(pred,resp,na.rm=TRUE)\n\n[1] \"Root Mean Square Error is 0.9258 / Mean Adjusted Error is 0.8176\"",
+    "text": "Test WRAPPER with NA\n\nresp[7:8] &lt;- c(NA_real_)\n\npredEVAL(pred,resp)\n\n[1] \"Root Mean Square Error is NA / Mean Adjusted Error is NA\"\n\npredEVAL(pred,resp,na.rm=TRUE)\n\n[1] \"Root Mean Square Error is 0.9622 / Mean Adjusted Error is 0.8176\"",
     "crumbs": [
       "Home",
       "Homework 6 Site - Evan Gray"

@@ -74,7 +74,7 @@ newcor
 getRMSE <- function(predict, response,...){
 
   diffsq <- (c(predict-response))^2
-  RMSE <- mean(diffsq,...)
+  RMSE <- sqrt(mean(diffsq,...))
 
   return(RMSE)
 }
