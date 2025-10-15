@@ -279,6 +279,6 @@ map(fits,"residuals") |> #creates list of 4 residual vectors
 par(mfrow = c(2,2))
 map(fits,"residuals") |> #creates list of 4 residual vectors
 set_names(c("fit1","fit2","fit3","fit4")) |> #inputs list and renames each vector
-  iwalk(\(x, names(x)) hist(x,main = names(x))) #don't know how to make this work...
+  iwalk(\(x, y) hist(x,main = y)) #don't know how to make this work...
 
 ```

@@ -136,7 +136,7 @@
     "href": "homework6.html#plot-2",
     "title": "Homework 6 Site - Evan Gray",
     "section": "Plot 2",
-    "text": "Plot 2\n\npar(mfrow = c(2,2))\nmap(fits,\"residuals\") |&gt; #creates list of 4 residual vectors\nset_names(c(\"fit1\",\"fit2\",\"fit3\",\"fit4\")) |&gt; #inputs list and renames each vector\n  iwalk(\\(x, names(x)) hist(x,main = names(x))) #don't know how to make this work...\n\nError in parse(text = input): &lt;text&gt;:4:19: unexpected '('\n3: set_names(c(\"fit1\",\"fit2\",\"fit3\",\"fit4\")) |&gt; #inputs list and renames each vector\n4:   iwalk(\\(x, names(\n                     ^",
+    "text": "Plot 2\n\npar(mfrow = c(2,2))\nmap(fits,\"residuals\") |&gt; #creates list of 4 residual vectors\nset_names(c(\"fit1\",\"fit2\",\"fit3\",\"fit4\")) |&gt; #inputs list and renames each vector\n  iwalk(\\(x, y) hist(x,main = y)) #don't know how to make this work...",
     "crumbs": [
       "Home",
       "Homework 6 Site - Evan Gray"

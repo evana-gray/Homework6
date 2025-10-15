@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-14">
+<meta name="dcterms.date" content="2025-10-15">
 
 <title>Homework 6 Site - Evan Gray – Homework 6 Site</title>
 <style>
@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-10-14</p>
+      <p class="date">2025-10-15</p>
     </div>
   </div>
   
@@ -623,12 +623,13 @@ Speciesvirginica  -1.6831329 -0.36386273</code></pre>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(fits,<span class="st">"residuals"</span>) <span class="sc">|&gt;</span> <span class="co">#creates list of 4 residual vectors</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">"fit1"</span>,<span class="st">"fit2"</span>,<span class="st">"fit3"</span>,<span class="st">"fit4"</span>)) <span class="sc">|&gt;</span> <span class="co">#inputs list and renames each vector</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">iwalk</span>(\(x, <span class="fu">names</span>(x)) <span class="fu">hist</span>(x,<span class="at">main =</span> <span class="fu">names</span>(x))) <span class="co">#don't know how to make this work...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:4:19: unexpected '('
-3: set_names(c("fit1","fit2","fit3","fit4")) |&gt; #inputs list and renames each vector
-4:   iwalk(\(x, names(
-                     ^</code></pre>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">iwalk</span>(\(x, y) <span class="fu">hist</span>(x,<span class="at">main =</span> y)) <span class="co">#don't know how to make this work...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="homework6_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
